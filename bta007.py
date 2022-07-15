@@ -42,7 +42,12 @@ for arquivo in arquivos:
         if pg in sete.spam:
             start = pato + arquivo
             fim = pato + pg
-            shutil.move(start,fim)
+            try:
+                shutil.move(start,fim)
+            except shutil.Error:
+                print('já existe um arquivo chamado ' 
+                + arquivo + '\n' + 
+                'Localizado no diretorio: ' + fim)
     else:
         if not os.path.isdir("OUTROS"):
             os.makedirs("OUTROS")
