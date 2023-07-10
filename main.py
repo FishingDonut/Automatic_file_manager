@@ -3,7 +3,7 @@ import re
 import shutil
 
 
-fish = "C:/Users/Danie/Downloads/"
+fish = "path"
 
 #direciona o local para o projeto
 os.chdir(fish)
