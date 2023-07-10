@@ -2,7 +2,7 @@
 
 No seu terminal execute:
 
-"python bta007.py"
+"python main.py"
 
 Depois insira um path para indicar onde você
 deseja que ele faça as alterações.

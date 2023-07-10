@@ -2,8 +2,8 @@ import os
 import re
 import shutil
 
-print("Cole um path absoluto!")
-fish = input("--> : ")
+
+fish = "C:/Users/Danie/Downloads/"
 
 #direciona o local para o projeto
 os.chdir(fish)
@@ -36,9 +36,20 @@ padrao = re.compile(r'\.\w+$')
 
 for arquivo in arquivos:
     p1 = padrao.search(arquivo)
-    pg = p1.group()
-    pg = pg.replace(".","")
-    if pg in sete.spam:
-        start = pato + arquivo
-        fim = pato + pg
-        shutil.move(start,fim)
+    if p1:
+        pg = p1.group()
+        pg = pg.replace(".","")
+        if pg in sete.spam:
+            start = pato + arquivo
+            fim = pato + pg
+            try:
+                shutil.move(start,fim)
+            except shutil.Error:
+                print('já existe um arquivo chamado ' 
+                + arquivo + '\n' + 
+                'Localizado no diretorio: ' + fim)
+    else:
+        if not os.path.isdir("OUTROS"):
+            os.makedirs("OUTROS")
+        
+        shutil.move(pato + arquivo,pato + "OUTROS")
